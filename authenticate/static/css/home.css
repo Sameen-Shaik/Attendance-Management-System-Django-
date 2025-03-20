@@ -1,0 +1,84 @@
+* {
+    margin: 0;  
+    padding: 0;
+    border: 0;
+}
+
+body{
+    min-height: 100vh;
+    /* background-image:linear-gradient(125deg, rgb(255, 159, 175),rgb(140, 245, 255)); */
+    /* background-image:linear-gradient(125deg,#D8B5FF, #1EAE98); */
+    /* background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%); */
+    /* background-image:linear-gradient(125deg,#A9F1DF, #FFBBBB); */
+    /* background:
+    linear-gradient(to bottom, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.2) 100%),
+    linear-gradient(135deg, #e3f2fd, #bbdefb); /* Light texture on light blue */
+    background: linear-gradient(to left, #e0f2f7, #0b486b); /* Light blue to dark blue */
+    font-family: sans-serif; 
+}
+
+.container{
+    display: relative;
+    transform: translate(50%, 20%);
+    min-height: 70vh;
+    width: 50vw;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid white;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0, 0.5);
+}
+
+.heading{
+    margin-top: 5vh;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.images {
+    display: flex;
+    min-height: 50vh;
+    justify-content: space-evenly;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.login a{
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    position:relative;
+}
+
+.login img{
+    width: 250px;
+    height: 250px;
+    border: 2px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    /* gap: 20px; */
+}
+
+.login img:hover {
+    transform: scale(1.05);
+}
+
+.login p {
+    margin-top: 10px;
+    color: black;
+    text-align: center;
+}
+
+@media screen and ( max-width: 260px ){
+    .login img{
+        width:80vw ;
+        height: auto;
+    }
+}
+
+@media screen and ( max-height: 610px ){
+    .login img{
+        height:35vh ;
+        width: auto;
+    }
+}

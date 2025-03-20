@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="{% static 'css/login_page.css' %}" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('{% static "images/jntu.webp" %}');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+
+<body>
+        {% block body %}
+
+        {% endblock %}
+    <script>
+        document.querySelectorAll('.close-btn').forEach(function(button) {
+            button.addEventListener('click', function() {
+                this.closest('.alert').style.display = 'none';
+            });
+        });
+    </script>
+</body>
+
+</html>

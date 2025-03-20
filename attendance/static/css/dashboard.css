@@ -1,0 +1,252 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+  }
+  
+  /* Sidebar */
+  .sidenav {
+    width: 240px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #343a40;
+    color: white;
+    padding-top: 30px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+  }
+  
+  .sidenav-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .sidenav .navbar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sidenav .navbar-brand img {
+    width: 60px;
+    margin-right: 10px;
+  }
+  
+  .sidenav .navbar-nav {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .sidenav .nav-item {
+    margin: 10px 0;
+  }
+  
+  .sidenav .nav-link {
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+  }
+  
+  .sidenav .nav-link:hover {
+    background-color: #495057;
+    color: #f8f9fa;
+  }
+  
+  .sidenav .nav-link i {
+    margin-right: 10px;
+  }
+  
+  /* Navbar */
+  .navbar {
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar .breadcrumb {
+    background-color: transparent;
+    margin-bottom: 0;
+    padding: 0;
+  }
+  
+  .navbar .breadcrumb .breadcrumb-item a {
+    color: #495057;
+  }
+  
+  .navbar .breadcrumb .breadcrumb-item.active {
+    color: #007bff;
+  }
+  
+  .navbar .form-control {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  /* Main Content */
+  .main-content {
+    margin-left: 240px;
+    padding: 20px;
+  }
+  
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .card-header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .card-body {
+    padding: 20px;
+    background-color: white;
+  }
+  
+  .card .card-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .card .display-4 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  
+  /* Stat Cards */
+  .card.bg-gradient-primary {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+  }
+  
+  .card.bg-gradient-info {
+    background: linear-gradient(45deg, #17a2b8, #117a8b);
+  }
+  
+  .card.bg-gradient-success {
+    background: linear-gradient(45deg, #28a745, #1c7c35);
+  }
+  
+  .card.bg-gradient-primary .card-title,
+  .card.bg-gradient-info .card-title,
+  .card.bg-gradient-success .card-title {
+    font-size: 20px;
+  }
+  
+  .card.bg-gradient-primary .card-body,
+  .card.bg-gradient-info .card-body,
+  .card.bg-gradient-success .card-body {
+    color: white;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #343a40;
+    padding: 20px 0;
+    color: white;
+  }
+  
+  .footer .nav-link {
+    color: white;
+  }
+  
+  .footer .nav-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Button Styles */
+  .btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  .btn-outline-dark {
+    border: 2px solid #343a40;
+    color: #343a40;
+    background-color: transparent;
+  }
+  
+  .btn-outline-dark:hover {
+    background-color: #343a40;
+    color: white;
+  }
+  
+  /* Sidebar toggling button (for small screens) */
+  .fixed-plugin-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+  }
+  
+  .fixed-plugin-button i {
+    font-size: 30px;
+    color: #007bff;
+  }
+  
+  .fixed-plugin-button:hover {
+    cursor: pointer;
+  }
+  
+  /* Card Customizations for Specific Sections */
+  .card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .card-body .text-muted {
+    color: #6c757d;
+  }
+  
+  .card-body h3.display-4 {
+    font-size: 36px;
+    font-weight: bold;
+  }
+  
+  /* Responsive Adjustments */
+  @media screen and (max-width: 992px) {
+    .main-content {
+      margin-left: 0;
+    }
+  
+    .sidenav {
+      width: 200px;
+    }
+  
+    .navbar {
+      padding: 0;
+    }
+  
+    .navbar .form-control {
+      width: 100%;
+    }
+  
+    .footer {
+      text-align: center;
+    }
+  }
+  

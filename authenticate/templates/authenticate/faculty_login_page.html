@@ -1,0 +1,32 @@
+{% extends "authenticate/base_login.html" %}
+
+{% block body %}
+<form method="post" class="login-form">
+    {% csrf_token %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="close-btn" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <h2 class="text-center">Login</h2>
+
+    <div class="form-group">
+        <label for="username">Faculty Id:</label>
+        <input type="text" id="username" name="faculty_id" placeholder="Enter your Faculty Id" required>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter Your Password" required>
+    </div>
+
+    <button type="submit" class="submit-btn">Login</button>
+
+</form>
+{% endblock %}

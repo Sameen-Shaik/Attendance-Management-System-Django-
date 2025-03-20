@@ -1,0 +1,54 @@
+{% extends "attendance/base_faculty_dashboard.html" %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/take_attendance.css' %}">
+{% endblock styles %}
+
+{% block body %}
+    <div>
+        <h1 class="text-center">Take Attendance</h1>
+        <h2>Select a Class</h2>
+    </div>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label for="course">Choose a course:</label>
+        <select name="course_id" id="course_id">
+            {% for class in classes %}
+                <option value="{{ class.id }}" {% if class.id == selected_course.id %}selected{% endif %}>
+                    {{ class.course.code }} - {{ class.course.name }}
+                </option>
+            {% endfor %}
+        </select>
+        <button type="submit">Go</button>
+    </form>
+
+    {% if students %}
+    <h3>Students in {{ selected_course.course.name }}</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>Admission Number</th>
+                <th>Name</th>
+                <th>Status</th>
+            </tr>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.user.username }}</td>
+                <td>{{ student.user.name }}</td>
+                <td>
+                    <!-- Hidden input ensures default 'absent' value -->
+                    <input type="hidden" name="attendance_{{ student.user.username }}" value="absent">
+                    <input type="checkbox" name="attendance_{{ student.user.username }}" value="present">
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <button type="submit" name="attendance_submit">Submit Attendance</button>
+    </form>
+    {% elif selected_course %}
+    <p>No students found for this course.</p>
+    {% endif %}
+{% endblock body %}
