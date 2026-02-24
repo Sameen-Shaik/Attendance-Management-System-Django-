@@ -1,12 +1,21 @@
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![Django](https://img.shields.io/badge/Django-5.1.5-green)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+
 # Attendance Management System
 
 A web-based attendance management system built with Django that allows faculty members to track student attendance and provides students with access to their attendance records and analytics.
+
+## Problem Statement
+
+Managing attendance manually in educational institutions is time-consuming and error-prone. This system provides a centralized platform for tracking attendance, generating analytics, and improving transparency between faculty and students.
 
 ## Table of Contents
 
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Project Structure](#project-structure)
+- [Design Decisions](#design-decisions)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Database Models](#database-models)
@@ -91,6 +100,16 @@ attendance-management/
 └── add faculty.py             # Script to add faculty
 ```
 
+## Design Decisions
+
+- **UUID for session IDs**: `Session.session_id` uses `UUIDField` with `uuid.uuid4` to prevent predictable session enumeration and URL guessing
+- **Custom user model**: `MyUser` extends `AbstractUser` via `AUTH_USER_MODEL`, making it easy to add fields later without schema migrations against the built-in `User` table
+- **Role-based access control via `user_type`**: A single `user_type` field (`student`/`faculty`) on `MyUser` drives all access branching, keeping permission logic simple and centralised
+- **Separate `authenticate` and `attendance` apps**: Authentication concerns (login, user profiles) are decoupled from attendance domain logic, making each app independently testable and replaceable
+- **Profile models as OneToOne extensions**: `Student` and `Faculty` are thin proxy models linked to `MyUser` via `OneToOneField`, allowing domain-specific relationships (e.g. `CourseBatch.students`) without polluting the core user model
+- **`unique_together` on Attendance**: `(session, student)` is enforced at the database level, preventing duplicate attendance records for the same session without extra application-layer checks
+- **SQLite for development simplicity**: No external database setup required; the engine can be swapped to PostgreSQL in `settings.py` for production without changing any application code
+
 ## Installation
 
 ### Prerequisites
@@ -113,9 +132,9 @@ attendance-management/
    ```
 
 3. **Install dependencies**
-   ```bash
-   pip install django
-   ```
+     ```bash
+     pip install -r requirements.txt
+     ```
 
 4. **Run migrations**
    ```bash
