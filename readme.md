@@ -1,6 +1,7 @@
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
 ![Django](https://img.shields.io/badge/Django-5.1.5-green)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
+![Pandas](https://img.shields.io/badge/Pandas-2.1.0-150458?logo=pandas)
 
 # Attendance Management System
 
